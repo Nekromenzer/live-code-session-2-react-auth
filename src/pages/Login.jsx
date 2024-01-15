@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import handleApiCall from "../services/HandleAPiCall";
 
 const Login = () => {
@@ -6,7 +7,7 @@ const Login = () => {
     userName: "kminchelle",
     password: "0lelplR",
   });
-
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const handleOnChange = (e) => {
@@ -22,11 +23,20 @@ const Login = () => {
           localStorage.setItem("lastName", data.lastName);
           localStorage.setItem("email", data.email);
           localStorage.setItem("token", data.token);
+          navigate("/");
         }
       },
       setLoading,
     });
   };
+
+  //   prevent logged in user from accessing login page
+  useEffect(() => {
+    const loggedToken = localStorage.getItem("token") || null;
+    if (loggedToken) {
+      navigate("/");
+    }
+  }, []);
 
   if (loading) {
     return <h1>Loading...</h1>;
