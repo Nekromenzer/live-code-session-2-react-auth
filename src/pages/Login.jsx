@@ -18,11 +18,10 @@ const Login = () => {
       data: formData,
       cb: (data, status) => {
         if (status === 200) {
-          localStorage.setItem("firstName", JSON.stringify(data.firstName));
-          localStorage.setItem("lastName", JSON.stringify(data.lastName));
-          localStorage.setItem("email", JSON.stringify(data.email));
-          localStorage.setItem("token", JSON.stringify(data.token));
-          console.log(data);
+          localStorage.setItem("firstName", data.firstName);
+          localStorage.setItem("lastName", data.lastName);
+          localStorage.setItem("email", data.email);
+          localStorage.setItem("token", data.token);
         }
       },
       setLoading,
