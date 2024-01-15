@@ -6,6 +6,11 @@ import axios from "axios";
 const url = "https://dummyjson.com/auth/login";
 
 const handleApiCall = ({ data, cb, setLoading }) => {
+  const modifiedData = {
+    username: data.userName,
+    password: data.password,
+  };
+
   async function handelCall() {
     // loading start
     setLoading(true);
@@ -14,9 +19,9 @@ const handleApiCall = ({ data, cb, setLoading }) => {
       const response = await axios({
         method: "POST",
         url,
-        data,
+        data: JSON.stringify(modifiedData),
         headers: {
-          Accept: "*/*",
+          "Content-Type": "application/json",
         },
       });
 

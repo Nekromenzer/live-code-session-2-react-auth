@@ -1,7 +1,6 @@
-import React from "react";
-
 const Profile = () => {
-  return <div>Profile</div>;
+  const loggedUserName = localStorage.getItem("firstName") || null;
+  return <div>Welcome {loggedUserName}</div>;
 };
 
 export default Profile;
