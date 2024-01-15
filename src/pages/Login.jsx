@@ -3,9 +3,11 @@ import { useNavigate } from "react-router";
 import handleApiCall from "../services/HandleAPiCall";
 
 const Login = () => {
+  // userName: "kminchelle",
+  // password: "0lelplR",
   const [formData, setFormData] = useState({
-    userName: "kminchelle",
-    password: "0lelplR",
+    userName: "",
+    password: "",
   });
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
