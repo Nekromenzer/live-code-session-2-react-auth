@@ -12,12 +12,11 @@ const handleApiCall = ({ data, cb, setLoading }) => {
     try {
       // axios call
       const response = await axios({
-        method: "post",
+        method: "POST",
         url,
         data,
         headers: {
           Accept: "*/*",
-          "Content-Type": "multipart/form-data",
         },
       });
 
