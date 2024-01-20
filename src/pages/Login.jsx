@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import { useNavigate } from "react-router";
 import handleApiCall from "../services/HandleAPiCall";
 
@@ -33,7 +33,7 @@ const Login = () => {
   };
 
   //   prevent logged in user from accessing login page
-  useEffect(() => {
+  useLayoutEffect(() => {
     const loggedToken = localStorage.getItem("token") || null;
     if (loggedToken) {
       navigate("/");
